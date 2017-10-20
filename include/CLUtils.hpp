@@ -449,9 +449,8 @@ namespace clutils
         GPUTimer (cl::Device &device)
         {
             period tPeriod;
-            size_t tRes = device.getInfo<CL_DEVICE_PROFILING_TIMER_RESOLUTION> ();  // x nanoseconds
             // Converts nanoseconds to seconds and then to the requested scale
-            tUnit = (double) tPeriod.den / (double) tPeriod.num / 1000000000.0 * tRes;
+            tUnit = (double) tPeriod.den / (double) tPeriod.num / 1000000000.0;
         }
 
         /*! \brief Returns a new unpopulated event.
